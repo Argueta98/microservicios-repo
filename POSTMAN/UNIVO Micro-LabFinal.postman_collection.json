@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "7723aa89-ad3c-4921-a730-8fcce873135f",
+		"name": "UNIVO Micro-LabFinal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12775591"
+	},
+	"item": [
+		{
+			"name": "micro services",
+			"item": [
+				{
+					"name": "EJERCICIO PRUEBA FINAL",
+					"item": [
+						{
+							"name": "Get razas by Tipo and Acreditado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v2/razas/TipoAcreditado/trabajo/true",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v2",
+										"razas",
+										"TipoAcreditado",
+										"trabajo",
+										"true"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get premios by promedio",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v2/premios/promedio-pais/Estados Unidos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v2",
+										"premios",
+										"promedio-pais",
+										"Estados Unidos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get campeonato by id and perros",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v2/premios/campeonato/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v2",
+										"premios",
+										"campeonato",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get razas by  acreditados and premios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v2/razas/acreditado/true",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v2",
+										"razas",
+										"acreditado",
+										"true"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
