@@ -136,39 +136,41 @@ csvtojson({
     };
     return res.json(response);
   });*/
-
+  
   router.get("/acreditado/:valor", async (req, res) => {
     const acreditado = req.params.valor.toLowerCase();
-    const razas = RazasArray.filter(
-      (raza) => raza.acreditado.toLowerCase() === acreditado
-    );
-  
-    const premiosPromises = [];
-  
-    for (const raza of razas) {
-      const perroData = await fetch(
-        `http://perros:3000/api/v2/perros/raza/${raza.raza}`
-      );
-      const perro = await perroData.json();
+    const razas = RazasArray.filter((raza) => raza.acreditado.toLowerCase() === acreditado);
+    let arrayRazas = razas.map(raza  => raza.raza); 
 
-  
+    const perroData = await fetch(`http://perros:3000/api/v2/perros/raza/${arrayRazas.join(",")}`);
+    const perro = await perroData.json();
 
-     /* const premiosPromise = fetch(
-        `http://premios:4000/api/v2/premios/campeonId/${perro[0].Id}`
-      ).then((response) => response.json());
-      premiosPromises.push(premiosPromise);*/
+  /*  const arrayPerros = perro.map((perro) => {
+      return {
+        id: perro.Id,
+      }
+    });
+
+    const premiosResponse = await fetch(` http://premios:4000/api/v2/premios/campeonIds/${arrayPerros}`);
+    const premios = await premiosResponse.json();*/
+
+
+    if (razas.length === 0) {
+      return res.status(404).json({
+        message: "No se encontraron el acreditado especificado."
+      });
     }
-  
-    const premios = await Promise.all(premiosPromises);
-  
     const response = {
       service: "Razas, Perro y Premios {Acreditado}",
       cantidad: razas.length,
       data: razas,
-    //  dataPremios: premios,
+      dataPerro : perro
+     // dataPremios: premios
     };
     return res.json(response);
   });
+
+ 
   
 
 

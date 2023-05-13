@@ -32,8 +32,6 @@ router.get("/", (req, res) => {
   router.get("/busqueda/:id", async (req, res) => {
     const id = req.params.id.split(","); 
     const perrosDatos = data.filter((perro) => id.includes(String(perro.Id)));
-
-    console.log(perrosDatos);
   
     const response = {
       service: "datos de varios perros por ID",
@@ -64,7 +62,19 @@ router.get("/", (req, res) => {
 
 
 //busqueda por el nombre de la raza
-router.get("/raza/:raza", async (req, res) => {
+router.get("/raza/:razas", async (req, res) => {
+  const razas = req.params.razas.split(",");
+  const razaDatos = data.filter((perro) => razas.includes(perro.raza));
+
+  const response = {
+    service: "Datos de perros por raza",
+    data: razaDatos,
+  };
+
+  return res.json(response);
+});
+
+/*router.get("/raza/:raza", async (req, res) => {
   const raza = req.params.raza;
   const razaDato = data.filter((perro)=> perro.raza=== raza)
 
@@ -74,7 +84,7 @@ router.get("/raza/:raza", async (req, res) => {
    };
  
    return res.json(response);
- });
+ });*/
 
 //Busqueda por el nombre del perro
  router.get("/perro/:nombre", async (req, res) => {

@@ -52,7 +52,17 @@ router.get("/puntaje/:puntaje", async(req, res)=>{
 })
 
 //Busqueda por campeon  id
-router.get("/campeonId/:id", async(req, res)=>{
+router.get("/campeonIds/:ids", async(req, res)=>{
+    const ids = req.params.ids.split(",").map(id => parseInt(id));
+    const premios = await premiosData.findAll({where: {id_campeon: {[Op.in]: ids}}});
+    const response = {
+      cantidad: premios.length,
+      data:  premios
+    }
+    res.send(response);
+  });
+  
+/*router.get("/campeonId/:id", async(req, res)=>{
     const campeonId = req.params.id;
     const premios = await premiosData.findAll({where: {id_campeon: campeonId}});
     const response = {
@@ -60,7 +70,7 @@ router.get("/campeonId/:id", async(req, res)=>{
        data:  premios
     }
     res.send(response);
-})
+})*/
 
 //Busqueda por anio de campeonato
 router.get("/anio/:anio", async(req, res)=>{
@@ -172,6 +182,8 @@ router.get("/campeonato/:id", async(req, res)=>{
 
     res.json(response);
 });
+
+
 
 
 
