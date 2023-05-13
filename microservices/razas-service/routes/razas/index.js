@@ -136,7 +136,8 @@ csvtojson({
     };
     return res.json(response);
   });*/
-  
+
+  //--------------------------------------- EJERCICIO #5 -----------------------------------------------------------
   router.get("/acreditado/:valor", async (req, res) => {
     const acreditado = req.params.valor.toLowerCase();
     const razas = RazasArray.filter((raza) => raza.acreditado.toLowerCase() === acreditado);
