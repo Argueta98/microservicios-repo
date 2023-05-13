@@ -41,6 +41,67 @@ router.get("/", (req, res) => {
     return res.json(response);
   });
 
+/*
+  router.get("/perros/pesados", async (req, res) => {
+    const perros = await fetch("http://perros:3000/api/v2/perros");
+    const perrosData = await perros.json();
+  
+    // Ordenar perros por peso de mayor a menor
+    const perrosPesados = perrosData.sort((a, b) => b.peso - a.peso);
+  
+    // Tomar los primeros 10 elementos del array
+    const perrosMasPesados = perrosPesados.slice(0, 10);
+  
+    const response = {
+      servicio: "Perros más pesados",
+      cantidad: perrosMasPesados.length,
+      data: perrosMasPesados,
+    };
+  
+    res.json(response);
+  });*/
+
+  ///--------------------------------EJERCICIO 4---------------------------------------------------------------------
+
+  router.get("/perros/pesados", async (req, res) => {
+    const perros = data;
+  
+    // Ordenar los perros por peso de forma descendente
+    const perrosOrdenados = perros.sort((a, b) => b.peso - a.peso);
+  
+    // Tomar los primeros 10 perros de la lista
+    const primeros10Perros = perrosOrdenados.slice(0, 10);
+    const arrayRazas = primeros10Perros.map(raza => raza.raza);
+    const arraypremios = primeros10Perros.map(id => id.Id);
+
+    const razas = await fetch("http://razas:5000/api/v2/razas");
+    const razasJson = await razas.json();
+
+    const premios = await fetch("http://premios:4000/api/v2/premios");
+    const premiosJson = await premios.json();
+  
+    const resultado_filtro = razasJson.data.filter((elemento) => {
+      return elemento.raza.some((raza) => arrayRazas.includes(raza));
+    });
+    
+    const resultado_filtro2 = premiosJson.premios.filter((elemento) => {
+      return arraypremios.includes(elemento.id_campeon);
+    });
+    
+  
+    const response = {
+    servicio: "Perros más pesados y sus razas , y premios",
+    dataPerros: primeros10Perros,
+      Datarazas : resultado_filtro,
+     dataPremios : resultado_filtro2
+
+    };
+  
+    return res.json(response);
+  });
+  
+  
+
  
 
 //Obtener por el pais del dueño

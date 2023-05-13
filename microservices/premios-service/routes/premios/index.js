@@ -177,7 +177,6 @@ router.get("/campeonato/:id", async(req, res)=>{
         servicio : "Campeonato y informacion del perro",
         campeonato: premios,
         perroData: perro
-
     };
 
     res.json(response);
