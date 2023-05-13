@@ -10,80 +10,10 @@
 			"name": "micro services",
 			"item": [
 				{
-					"name": "EJERCICIO PRUEBA FINAL",
+					"name": "EJERCICIOS DE EXAMEN  REPO",
 					"item": [
 						{
-							"name": "Get razas by Tipo and Acreditado",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/api/v2/razas/TipoAcreditado/trabajo/true",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v2",
-										"razas",
-										"TipoAcreditado",
-										"trabajo",
-										"true"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get premios by promedio",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/api/v2/premios/promedio-pais/Estados Unidos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v2",
-										"premios",
-										"promedio-pais",
-										"Estados Unidos"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get campeonato by id and perros",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/api/v2/premios/campeonato/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v2",
-										"premios",
-										"campeonato",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Get razas by  acreditados and premios",
+							"name": "Get Acreditado, raza, premios",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -100,6 +30,29 @@
 										"razas",
 										"acreditado",
 										"true"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Perros Peso raza premios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v2/perros/perros/pesados",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v2",
+										"perros",
+										"perros",
+										"pesados"
 									]
 								}
 							},
